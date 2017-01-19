@@ -13,16 +13,22 @@ var platform_browser_1 = require('@angular/platform-browser');
 var navbar_component_1 = require('./components/navbar/navbar.component');
 var jumbotron_component_1 = require('./components/jumbotron/jumbotron.component');
 var home_component_1 = require('./components/pages/home.component');
-var app_router_1 = require('./app.router');
+var about_component_1 = require('./components/pages/about.component');
+var router_1 = require('@angular/router');
 var app_component_1 = require('./app.component');
+var appRoutes = [
+    { path: '', component: home_component_1.HomeComponent },
+    { path: 'about', component: about_component_1.AboutComponent }
+];
+exports.routing = router_1.RouterModule.forRoot(appRoutes);
 var AppModule = (function () {
     function AppModule() {
     }
     AppModule = __decorate([
         core_1.NgModule({
-            imports: [platform_browser_1.BrowserModule],
-            declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent, jumbotron_component_1.JumbotronComponent, home_component_1.HomeComponent],
-            bootstrap: [app_component_1.AppComponent, app_router_1.appRouterProviders]
+            imports: [platform_browser_1.BrowserModule, exports.routing],
+            declarations: [app_component_1.AppComponent, navbar_component_1.NavbarComponent, jumbotron_component_1.JumbotronComponent, home_component_1.HomeComponent, about_component_1.AboutComponent],
+            bootstrap: [app_component_1.AppComponent]
         }), 
         __metadata('design:paramtypes', [])
     ], AppModule);
